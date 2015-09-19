@@ -1,3 +1,134 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 3em 0;
+  padding: 0;
+}
+a:hover {
+  text-decoration: none;
+}
+.outer {
+  margin: 0 auto;
+  max-width: 480px;
+}
+
+.logo {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAC40lEQVRIS8WVQUiUQRTH///Z1U3cDSOMEMRPCCKK8lDQJVS6RJf00DHaoCBXBT1U0KXtElQHF3S3oCCjYwc9RZdQ6RLUwaKIIHBEkEiiZXelVt15MfPt6q7IokXsd/m+ed/M+733nzfziC0eL5mLAmYEoMZKuFsPM+0lcx2gmYCgCYq9ui8ybZd6yewkiXMCJHQsMrzZHbcCtKcyaRHVBZohCLXuj8S9VGbcfoMyC3BIxyJd3oNsFwQJ5MNdDGW1sK5D9zXocp8VALcA6KQgPheL0Etm4yA6QUxDJAryklss8gTkOIx4INsdLJW1c+asXcciMyWIA3gj0oT63BSJjtKPEoDErZJNiG77TcHUug2YKQEIdPp8zJak9QGp3BAhI+Wp/QvAQcBhHQsnioDsdIm+ERmjgPQQ6CmLNgEibSXcsIkGGIXIJMmmzZlVAARY126rzd+uzQZrfVnpKgBWlu06qTavPZWV2gFak8sngpBDNsJCQN5xTe1SlCMuYmLWL1O/2ozwowTN70CBx+14Dfy80N/4tmoG7cnsKIgB3xGvCUwzyeu+X79kCdz2y1HuEWoJlPtF8Nhcf2SwxoCHuWNG5ICTiHUfKKshBRx0kSv55CI3POwkAr4I6/IBWT1qx4r8Onc1/L5qBl4yNwyY836VqFEoaYKRC/4eqEe+FOaK/5vPYJgGzGBx/nPdHx6prUReKneHIpeLEsQVsBeAi9CAd13gkBvFczBqgB8K/skW8rGOhW9WzaB1dLklWCfNdsGvFVkMhVRQiexzDgP45t4F7HdA8ns+b9Ya6tlix2urXFoYbFysrUT//Ry0jS2fBc1JX+PASxUwjaYgp1wREa+c1oLTbi8CfG0KahkonPGrS72ZH2h8UYu7KDNO8KLkw3tsgy9WyF+9bHdkKPdTIE91bHe0eF1neghOCFzzqGjaO6eIR9ATSK+O7Z5cv/9d2xQzBLJt507LVojMC1XCtktr/QM0HxM3pKC83gAAAABJRU5ErkJggg==');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 1.5em;
+  margin: 0 auto .75em;
+  width: 1.5em;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 600;
+  letter-spacing: .3em;
+  margin: 0 0 .25em;
+  text-align: center;
+  text-indent: .3em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: #999;
+  font-size: .875em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.leaderboard {
+  border-top: 1px solid #f1f1f1;
+  counter-reset: ol-counter;
+  list-style-type: none;
+  margin: 0 0 1.5em;
+  padding: 0;
+}
+
+.show {
+  border-bottom: 1px solid #f1f1f1;
+  cursor: pointer;
+  padding: .5em 0;
+  position: relative;
+  overflow: hidden;
+  transition: background 300ms ease-out;
+  border-left: 4px solid white;
+}
+.show-header {
+  cursor: pointer;
+  padding: .5em 0;
+  position: relative;
+  overflow: hidden;
+  transition: background 300ms ease-out;
+}
+
+.show:before {
+  color: #999;
+  content: counter(ol-counter);
+  counter-increment: ol-counter;
+  display: inline-block;
+  font-weight: 300;
+  line-height: 3em;
+  text-align: center;
+  vertical-align: middle;
+  width: 3em;
+}
+.show .name,
+.show-header .name {
+  display: inline-block;
+  font-size: 1.25em;
+  color: #333;
+  font-weight: 300;
+  vertical-align: middle;
+}
+.show-header {
+  padding-left: 20px;
+}
+.show .description {
+  margin-left: 50px;
+}
+.show .score,
+.show-header .score {
+  color: #333;
+  display: block;
+  float: right;
+  font-size: 1.25em;
+  font-weight: 400;
+  line-height: 2.4em;
+  padding-right: 1.25em;
+}
+
+.show.selected,
+.show-header.selected  {
+  background-color: #fefff4;
+  border-bottom: #eb5f3a 4px solid;
+}
+
+.show:hover {
+  background-color: #fefff4;
+}
+
+@media (max-width: 500px) {
+
+  body {
+    margin: 2em 0 4em 0;
+  }
+
+  .show:hover {
+    background-color: inherit;
+  }
+
+  .show.selected:hover {
+    background-color: #fefff4;
+  }
+}

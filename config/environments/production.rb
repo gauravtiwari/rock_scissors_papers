@@ -17,6 +17,8 @@ Rails.application.configure do
   config.cache_store = :readthis_store, {
     expires_in: 2.weeks.to_i,
     namespace: 'cache',
+    compress: true,
+    compression_threshold: 2.kilobytes,
     redis: { url: ENV.fetch('REDIS_URL'), driver: :hiredis }
   }
 
