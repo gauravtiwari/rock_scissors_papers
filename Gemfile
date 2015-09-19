@@ -5,7 +5,10 @@ gem 'rails', '4.2.4'
 gem 'pg'
 gem 'sprockets-rails'
 gem 'arel'
+
+#Server
 gem 'passenger'
+gem 'foreman'
 
 #JS VM and SASS
 gem 'sass-rails', '~> 5.0'
@@ -31,8 +34,8 @@ gem 'pundit'
 gem 'jbuilder'
 gem 'react-rails'
 
-#Sluggable
-gem 'friendly_id'
+#ENV management
+gem 'figaro'
 
 #Realtime
 gem 'pusher'
