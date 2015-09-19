@@ -10,6 +10,9 @@ gem 'arel'
 gem 'passenger'
 gem 'foreman'
 
+#Setup bootstrap
+gem 'bootstrap-sass'
+
 #JS VM and SASS
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
