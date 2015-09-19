@@ -31,6 +31,9 @@ gem 'pundit'
 gem 'jbuilder'
 gem 'react-rails'
 
+#Sluggable
+gem 'friendly_id'
+
 #Realtime
 gem 'pusher'
 gem 'em-http-request'

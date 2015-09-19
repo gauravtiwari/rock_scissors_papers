@@ -85,6 +85,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.8)
     execjs (2.6.0)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hiredis (0.6.0)
@@ -207,6 +209,7 @@ DEPENDENCIES
   devise
   devise_invitable
   em-http-request
+  friendly_id
   hiredis
   jbuilder
   jquery-rails
