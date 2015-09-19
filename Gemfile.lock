@@ -162,6 +162,9 @@ GEM
       execjs
       rails (>= 3.2)
       tilt
+    readthis (1.0.0.pre.beta)
+      connection_pool (~> 2.1)
+      redis (~> 3.0)
     redis (3.2.1)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
@@ -223,6 +226,7 @@ DEPENDENCIES
   pusher
   rails (= 4.2.4)
   react-rails
+  readthis (~> 1.0.0.pre.beta)
   redis
   redis-namespace
   redis-objects

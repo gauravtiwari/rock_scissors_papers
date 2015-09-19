@@ -22,6 +22,7 @@ gem 'turbolinks', github: 'rails/turbolinks'
 gem 'redis'
 gem 'redis-namespace'
 gem 'hiredis'
+gem 'readthis', '~> 1.0.0.pre.beta'
 gem 'connection_pool'
 gem 'redis-objects'
 
