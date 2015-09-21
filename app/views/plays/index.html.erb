@@ -1,0 +1,31 @@
+<div class="outer">
+  <div class="clearfix">
+    <div class="pull-left">
+      <h1 class="title">Recent Plays</h1>
+    </div>
+    <%= link_to('New Play', new_play_path, class: 'btn btn-success pull-right') %>
+  </div>
+
+  <div class="play-header selected m-t-20">
+    <div class="col-sm-5 no-padding m-t-10">
+      <span class="name">Player</span>
+      <span class="badge">vs</span>
+      <span class="name">Opponent</span>
+    </div>
+    <span class="score">Score</span>
+  </div>
+  <div class="leaderboard">
+    <% @plays.includes(:opponent, :player, :winner).each do |play| %>
+      <%= link_to(play_path(play)) do %>
+     <div class="play">
+      <span class="name"><%= play.player.name %></span>
+      <span class="badge" id="vs"> vs </span>
+      <span class="name"><%= play.opponent.name %></span>
+      <span class="score"><%= play.player_score.value %>:<%= play.opponent_score.value %></span>
+
+
+     </div>
+     <% end %>
+    <% end %>
+  </div>
+</div>

@@ -2,6 +2,10 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap
+//= require underscore
+//= require pusher
+//= require snackbar
+//= require pusher_init
 //= require react
 //= require react_ujs
 //= require components

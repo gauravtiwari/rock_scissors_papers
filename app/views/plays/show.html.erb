@@ -1,0 +1,8 @@
+<div class="game">
+  <div class="row clearfix m-t-50">
+    <div class="chat">
+      <%= react_component('Messages', {messages: render(template: 'messages/index.json.jbuilder', locals: {messages: @play.messages}), game_channel: "play_#{@play.id}_chat", play_id: @play.id, path: play_messages_path(@play.id)}) %>
+    </div>
+    <%= react_component('Game', { play: render(template: 'plays/show.json.jbuilder'), game_channel: "play_#{@play.id}", path: play_moves_path(@play.id)} ) %>
+  </div>
+</div>

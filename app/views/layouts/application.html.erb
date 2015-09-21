@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rspgame</title>
+  <title>Rock, Paper, Scissors Game</title>
+  <meta name="current-player" id="<%= current_player.try(:id) %>" name="<%= current_player.try(:name) %>" />
+  <meta name="pusher" key="<%= ENV['pusher_key'] %>" />
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="header bg-horizon">
+  <div class="container">
+    <%= link_to(root_path) do %>
+      <div class="logo pull-left"></div>
+    <% end %>
+    <div class="pull-right no-padding">
+      <div class="visible-lg visible-md">
+      <% if player_signed_in? %>
+        <div class="pull-right m-t-5">
+          <span class="semi-bold">
+            <%= link_to "Logout", destroy_player_session_path %>
+          </span>
+        </div>
+        <span class="placeholder thumbnail-wrapper d32 circular box-shadow pull-left m-r-10">
+          <%= current_player.name_badge %>
+        </span>
+        <span class="bold text-white inline m-t-5 m-r-10"><%= current_player.name %></span>
+        <% else %>
+          <div class="pull-right p-t-15 fs-16 font-heading">
+            <span class="semi-bold">
+              <%= link_to "Login", new_player_session_path, class: 'text-white btn btn-ghost' %>
+            </span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 <%= yield %>
-
+<%= javascript_tag do %>
+  window.flashMessages = $.parseJSON('<%=j flash.to_hash.to_json.html_safe %>');
+<% end %>
 </body>
 </html>

@@ -1,9 +1,10 @@
-class DeviseCreateUsers < ActiveRecord::Migration
+class CreatePlayers < ActiveRecord::Migration
   def change
-    create_table(:users) do |t|
+    create_table(:players) do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
-      t.string :username,              null: false, default: "", index: true
+      t.string :nickname,              null: false, default: "", index: true, unique: true
+      t.string :name,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       ## Recoverable
       t.string   :reset_password_token
@@ -19,7 +20,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :users, :email,                unique: true
-    add_index :users, :reset_password_token, unique: true
+    add_index :players, :email,                unique: true
+    add_index :players, :reset_password_token, unique: true
   end
 end
