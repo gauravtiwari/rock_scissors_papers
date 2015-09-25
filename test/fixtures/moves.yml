@@ -1,0 +1,55 @@
+first:
+  play: one
+  player: nick
+  opponent: computer
+  player_choice: rock
+  opponent_choice: paper
+
+second:
+  play: one
+  player: nick
+  opponent: computer
+  player_choice: paper
+  opponent_choice: paper
+
+third:
+  play: one
+  player: nick
+  opponent: computer
+  player_choice: rock
+  opponent_choice: spock
+
+fourth:
+  play: one
+  player: nick
+  opponent: computer
+  player_choice: lizard
+  opponent_choice: rock
+
+fifth:
+  play: one
+  player: nick
+  opponent: computer
+  player_choice: lizard
+  opponent_choice: spock
+
+valid:
+  play: one
+  player: nick
+  opponent: computer
+
+draw:
+  play: one
+  player: nick
+  opponent: computer
+  player_choice: rock
+  opponent_choice: rock
+
+not_draw:
+  play: one
+  player: nick
+  opponent: computer
+  player_choice: paper
+  opponent_choice: rock
+
+

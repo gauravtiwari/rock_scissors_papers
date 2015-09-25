@@ -10,6 +10,9 @@ class Play < ActiveRecord::Base
   belongs_to :looser, foreign_key: 'looser_id', class_name: 'Player'
   belongs_to :winner, foreign_key: 'winner_id', class_name: 'Player'
 
+  # Basic validation
+  validates_presence_of :player_id, :opponent_id, :min_moves
+
   # Callback to update play and player counters
   after_commit :update_counters, :update_winners, if: :completed?, on: :update
 
@@ -30,6 +33,7 @@ class Play < ActiveRecord::Base
 
   # Check if play is draw
   def draw?
+    return false unless completed?
     player_score.value == opponent_score.value
   end
 

@@ -63,9 +63,24 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'minitest-rails'
+end
+
+group :test do
+  gem "capybara"
+  gem "launchy"
+  gem "minitest-reporters"
+  gem "mocha"
+  gem "poltergeist"
+  gem "shoulda"
+  gem "test_after_commit"
 end
 
 group :development do
   gem 'web-console'
   gem 'spring'
+  gem "guard", ">= 2.2.2", :require => false
+  gem "guard-minitest", :require => false
+  gem "rb-fsevent", :require => false
+  gem "terminal-notifier-guard", :require => false
 end

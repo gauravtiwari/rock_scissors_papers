@@ -6,6 +6,9 @@ class Move < ActiveRecord::Base
   belongs_to :opponent, foreign_key: 'opponent_id', class_name: 'Player'
   belongs_to :winner, foreign_key: 'winner_id', class_name: 'Player'
 
+  # Basic Validation
+  validates_presence_of :player_id, :play_id
+
   #Public interface methods
   public
 

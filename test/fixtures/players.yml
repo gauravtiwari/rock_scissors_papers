@@ -1,0 +1,20 @@
+
+nick:
+  name: Nick Wock
+  email: nick@example.com
+  nickname: nick
+  encrypted_password: <%= Devise::Encryptor.digest(Player, 'password') %>
+
+john:
+  name: John Doe
+  email: john@example.com
+  nickname: john
+  encrypted_password: <%= Devise::Encryptor.digest(Player, 'password') %>
+
+computer:
+  name: Computer
+  email: computer@example.com
+  nickname: computer
+  encrypted_password: <%= Devise::Encryptor.digest(Player, 'password') %>
+
+

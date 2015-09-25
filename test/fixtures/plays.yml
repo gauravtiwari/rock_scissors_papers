@@ -1,0 +1,17 @@
+one:
+  player: nick
+  opponent: computer
+  min_moves: 5
+
+two:
+  player: john
+  opponent: computer
+  min_moves: 3
+
+three:
+  player: john
+  opponent: nick
+  min_moves: 7
+
+
+
