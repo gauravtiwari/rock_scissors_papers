@@ -1,5 +1,5 @@
 class MovePolicy < ApplicationPolicy
-  def update?
-    current_player == record.player || current_player == record.opponent
+  def create?
+    current_user == record.player || current_user == record.opponent
   end
 end

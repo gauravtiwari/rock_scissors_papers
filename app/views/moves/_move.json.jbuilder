@@ -3,4 +3,4 @@ json.choice opponent ? move.opponent_choice : move.player_choice
 json.draw move.draw?
 json.completed move.completed?
 json.played opponent ? move.opponent_choice.present? : move.player_choice.present?
-json.is_owner opponent ? current_player == move.opponent : current_player == move.player
+json.is_owner opponent ? current_player == move.opponent_id : current_player == move.player_id

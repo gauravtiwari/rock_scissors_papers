@@ -1,10 +1,11 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_player!
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /play/1/messages
   # GET /play/1/messages.json
   def index
-    @messages = Message.all
+    @messages = Message.order(id: :desc)
   end
 
   # GET /messages/1
@@ -18,6 +19,8 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.play_id = params[:play_id]
     @message.sender = current_player
+
+    #saved trigger messages to chatrooms
     if @message.save
       Pusher.trigger_async("play_#{params[:play_id]}_chat",
         "new_message",
@@ -31,13 +34,14 @@ class MessagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @message = Message.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_message
+    @message = Message.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def message_params
-      params.require(:message).permit(:body)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def message_params
+    params.require(:message).permit(:body)
+  end
+
 end

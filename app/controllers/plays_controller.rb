@@ -1,16 +1,18 @@
 class PlaysController < ApplicationController
   before_action :authenticate_player!, except: :index
   before_action :set_play, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
 
   # GET /plays
   # GET /plays.json
   def index
-    @plays = Play.all
+    @plays = Play.includes(:opponent, :player, :winner).all
   end
 
   # GET /plays/1
   # GET /plays/1.json
   def show
+    authorize @play
   end
 
   # GET /plays/new
@@ -18,16 +20,11 @@ class PlaysController < ApplicationController
     @play = Play.new
   end
 
-  # GET /plays/1/edit
-  def edit
-  end
-
   # POST /plays
   # POST /plays.json
   def create
     @play = Play.new(play_params)
     @play.player = current_player
-
     respond_to do |format|
       if @play.save
         format.html { redirect_to @play, notice: 'Play was successfully created.' }
@@ -64,6 +61,9 @@ class PlaysController < ApplicationController
   end
 
   private
+    def current_user
+      current_player
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_play
       @play = Play.includes(:player, :opponent, :winner, :messages).find(params[:id])

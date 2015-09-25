@@ -9,5 +9,8 @@ class CreateMoves < ActiveRecord::Migration
       t.string :opponent_choice
       t.timestamps null: false
     end
+    add_index :moves, [:play_id, :player_id, :player_choice]
+    add_index :moves, [:play_id, :opponent_id, :opponent_choice]
+    add_index :moves, [:play_id, :winner_id]
   end
 end

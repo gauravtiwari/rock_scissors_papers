@@ -171,6 +171,7 @@ CREATE TABLE plays (
     player_id integer,
     opponent_id integer,
     winner_id integer,
+    looser_id integer,
     min_moves integer DEFAULT 3,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
@@ -273,6 +274,13 @@ CREATE INDEX index_messages_on_play_id ON messages USING btree (play_id);
 
 
 --
+-- Name: index_messages_on_play_id_and_sender_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_messages_on_play_id_and_sender_id ON messages USING btree (play_id, sender_id);
+
+
+--
 -- Name: index_messages_on_sender_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -291,6 +299,27 @@ CREATE INDEX index_moves_on_opponent_id ON moves USING btree (opponent_id);
 --
 
 CREATE INDEX index_moves_on_play_id ON moves USING btree (play_id);
+
+
+--
+-- Name: index_moves_on_play_id_and_opponent_id_and_opponent_choice; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_moves_on_play_id_and_opponent_id_and_opponent_choice ON moves USING btree (play_id, opponent_id, opponent_choice);
+
+
+--
+-- Name: index_moves_on_play_id_and_player_id_and_player_choice; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_moves_on_play_id_and_player_id_and_player_choice ON moves USING btree (play_id, player_id, player_choice);
+
+
+--
+-- Name: index_moves_on_play_id_and_winner_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_moves_on_play_id_and_winner_id ON moves USING btree (play_id, winner_id);
 
 
 --
@@ -347,6 +376,13 @@ CREATE INDEX index_players_on_nickname ON players USING btree (nickname);
 --
 
 CREATE UNIQUE INDEX index_players_on_reset_password_token ON players USING btree (reset_password_token);
+
+
+--
+-- Name: index_plays_on_looser_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_plays_on_looser_id ON plays USING btree (looser_id);
 
 
 --

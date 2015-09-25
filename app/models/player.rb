@@ -17,15 +17,16 @@ class Player < ActiveRecord::Base
   counter :wins_count
   counter :loose_count
 
-  #callbacks
+  # Callbacks to initialize user rank
   after_commit :initialize_player_rank, on: :create
   after_commit :delete_player_rank, on: :destroy
 
+  #Public interface methods
   public
 
   def name_badge
     words = name.split(' ')
-    if words.length > 1
+    if words.length == 2
       words.first(2).map{|w| w.first }.join.upcase
     else
       characters = name.split('')
@@ -39,6 +40,6 @@ class Player < ActiveRecord::Base
 
   def delete_player_rank
     rank.delete(id)
+    true
   end
-
 end

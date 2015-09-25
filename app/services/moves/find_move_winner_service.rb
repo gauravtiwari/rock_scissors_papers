@@ -24,7 +24,7 @@ class FindMoveWinnerService
   private
 
   def winner
-    @move.player_choice ==  winning_move ? @move.player : @move.opponent
+    @move.player_choice ==  winning_move ? @move.player_id : @move.opponent_id
   end
 
   def winning_move

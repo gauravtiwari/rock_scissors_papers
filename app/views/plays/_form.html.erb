@@ -1,28 +1,26 @@
 <%= form_for(@play) do |f| %>
   <div class="p-l-15 p-r-15">
-  <% if @play.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@play.errors.count, "error") %> prohibited this play from being saved:</h2>
-
-      <ul>
-      <% @play.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @play.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@play.errors.count, "error") %> prohibited this play from being saved:</h2>
+        <ul>
+          <% @play.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :min_moves, "Set Moves (ODD)" %><br />
+      <%= f.text_field :min_moves, class: 'form-control p-l-15 p-r-15' %>
     </div>
-  <% end %>
-  <div class="form-group">
-    <%= f.label :min_moves, "Set Moves (ODD)" %><br />
-    <%= f.text_field :min_moves, class: 'form-control p-l-15 p-r-15' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :opponent_id, "Choose opponnent" %><br />
-    <%= f.collection_select :opponent_id, Player.all.where.not(id: current_player.id), :id, :name, {prompt: true},  {class: 'form-control'} %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Play", class: 'btn btn-success m-r-10' %>
-    <%= link_to 'Back', plays_path, class: 'btn btn-danger' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :opponent_id, "Choose opponnent" %><br />
+      <%= f.collection_select :opponent_id, Player.where.not(id: current_player.id), :id, :name, {prompt: true},  {class: 'form-control'} %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Play", class: 'btn btn-success m-r-10' %>
+      <%= link_to 'Back', plays_path, class: 'btn btn-danger' %>
+    </div>
   </div>
 <% end %>
