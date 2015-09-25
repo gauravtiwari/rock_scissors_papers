@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <%= render partial: 'nav' %>
+  <%= render partial: 'layouts/nav' %>
   <%= yield %>
   <%= javascript_tag do %>
     window.flashMessages = $.parseJSON('<%=j flash.to_hash.to_json.html_safe %>');
