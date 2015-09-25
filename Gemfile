@@ -56,6 +56,10 @@ gem 'snackbarjs-rails'
 gem 'pusher'
 gem 'em-http-request'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'byebug'
 end

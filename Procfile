@@ -1,3 +1,2 @@
 web: bundle exec passenger start -p 3000
-#worker: bundle exec sidekiq -c ${SIDEKIQ_CONCURRENCY:=3}
 redis: redis-server
