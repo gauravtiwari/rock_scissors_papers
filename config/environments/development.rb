@@ -18,7 +18,7 @@ Rails.application.configure do
     namespace: 'cache',
     compress: true,
     compression_threshold: 2.kilobytes,
-    redis: { url: ENV.fetch('REDIS_URL'), driver: :hiredis }
+    redis: { url: ENV['REDIS_URL'], driver: :hiredis }
   }
 
   # Don't care if the mailer can't send.
