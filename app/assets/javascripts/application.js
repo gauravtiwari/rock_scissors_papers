@@ -1,5 +1,4 @@
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap
@@ -8,7 +7,6 @@
 //= require snackbar
 //= require pusher_init
 //= require react
+//= require react_ujs
 //= require components
 //= require_tree .
-//= require turbolinks
-//= require react_ujs
