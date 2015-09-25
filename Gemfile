@@ -1,6 +1,10 @@
+# Set ruby version
 ruby '2.2.2'
+
+# Gem source
 source 'https://rubygems.org'
 
+# Fetch rails assets
 source 'https://rails-assets.org' do
   gem 'rails-assets-underscore'
   gem 'rails-assets-pusher'
@@ -57,10 +61,12 @@ gem 'snackbarjs-rails'
 gem 'pusher'
 gem 'em-http-request'
 
+#Heroku
 group :production do
   gem 'rails_12factor'
 end
 
+# MiniTest, Capybara suite
 group :development, :test do
   gem 'byebug'
   gem 'minitest-rails'
@@ -76,6 +82,7 @@ group :test do
   gem "test_after_commit"
 end
 
+# MiniTest, Guard and terminal notifier
 group :development do
   gem 'web-console'
   gem 'spring'
